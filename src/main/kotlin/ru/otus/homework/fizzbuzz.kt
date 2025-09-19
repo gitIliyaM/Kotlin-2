@@ -7,11 +7,10 @@ fun main() {
     val testResult2 = fizzbuzz(16)
     println("Результат для n=16: ${testResult2.contentToString()}")
 }
-fun fizzbuzz(n: Int): Array<String> {
 
-    val resultWithWhen = Array(n) { "" }
-    for (i in 0 until n) {
-        resultWithWhen[i] = when {
+fun fizzbuzz(n: Int): Array<String> {
+    val resultWithWhen = Array(n) { i ->
+        when {
             i % 3 == 0 && i % 5 == 0 -> "FizzBuzz"
             i % 3 == 0 -> "Fizz"
             i % 5 == 0 -> "Buzz"
@@ -19,16 +18,15 @@ fun fizzbuzz(n: Int): Array<String> {
         }
     }
 
-    val resultWithIf = Array(n) { "" }
-    for (i in 0 until n) {
+    val resultWithIf = Array(n) { i ->
         if (i % 3 == 0 && i % 5 == 0) {
-            resultWithIf[i] = "FizzBuzz"
+            "FizzBuzz"
         } else if (i % 3 == 0) {
-            resultWithIf[i] = "Fizz"
+            "Fizz"
         } else if (i % 5 == 0) {
-            resultWithIf[i] = "Buzz"
+            "Buzz"
         } else {
-            resultWithIf[i] = i.toString()
+            i.toString()
         }
     }
 
